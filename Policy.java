@@ -68,7 +68,7 @@ public class Policy
       // Last Name Methods
       public void setlastName(String lname)
       {
-         lastName = fname;
+         lastName = lname;
       }
       public String getlastName()
       {
@@ -118,21 +118,22 @@ public class Policy
       // Body Mass Index Method
       public double getBodyMassindex()
       {  
-         double bodyMassindex = 0;
+         double bodyMassindex = 0.0;
          bodyMassindex = (holderWeight * 703)/(Math.pow(holderHeight, 2.0));
          return bodyMassindex;
       }
       
       // Policy Price Method
-      public double getPrice()
+      public double getPrice(double bmi)
       {  
+         double bodyMassindex = bmi;
          double holderPrice = 600.0;
          double additionalFee = (bodyMassindex - 35) * 20;
          if (holderAge > 50)
          {
-           holderPrice = baseFee + 75.0;
+           holderPrice = holderPrice + 75.0;
          }
-         else if(smokeStatus == smoker)
+         else if(smokeStatus == "smoker")
          {
             holderPrice = holderPrice + 100.0;   
          }
